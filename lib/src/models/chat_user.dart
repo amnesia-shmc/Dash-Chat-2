@@ -6,18 +6,25 @@ class ChatUser {
     required this.id,
     this.profileImage,
     this.customProperties,
-    this.fullName,  // ← Make sure this line exists
+    this.fullName,  // ← Add only this line
   });
 
-  String id;
-  String? profileImage;
-  Map<String, dynamic>? customProperties;
-  String? fullName;  // ← Make sure this line exists
+  /// Id of the user
+  String id;  // ← Should exist only once
 
-  String getFullName() {
-    return fullName ?? 'User';  // ← Your fix
+  /// Profile image of the user  
+  String? profileImage;  // ← Should exist only once
+
+  /// Custom properties
+  Map<String, dynamic>? customProperties;  // ← Should exist only once
+
+  /// Full Name of the user - ADD THIS FIELD
+  String? fullName;  // ← This is the only new field you should add
+
+  String getFullName() {  // ← Should exist only once
+    return fullName ?? 'User';
   }
-
+  
   /// Create a ChatUser instance from json data
   factory ChatUser.fromJson(Map<String, dynamic> jsonData) {
     return ChatUser(
@@ -28,23 +35,6 @@ class ChatUser {
     );
   }
 
-  /// Id of the user
-  String id;
-
-  /// Profile image of the user
-  String? profileImage;
-
-  /// A list of custom properties to extend the existing ones
-  /// in case you need to store more things.
-  /// Can be useful to extend existing features
-  Map<String, dynamic>? customProperties;
-
-  /// Full Name of the user,
-  /// if you only have the name as one string
-  String getFullName() {
-    return fullName ?? 'User';
-  }
-  
   /// Convert a ChatUser into a json
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
