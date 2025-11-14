@@ -32,9 +32,10 @@ class ChatUser {
 
   /// Full Name of the user,
   /// if you only have the name as one string
-  /// you can put the entire value in the [firstName] field
-  String get getFullName => fullName ?? 'User';
-
+  String getFullName() {
+    return fullName ?? 'User';
+  }
+  
   /// Convert a ChatUser into a json
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
