@@ -6,8 +6,7 @@ class ChatUser {
     required this.id,
     this.profileImage,
     this.customProperties,
-    this.firstName,
-    this.lastName,
+    this.fullName,
   });
 
   /// Create a ChatUser instance from json data
@@ -15,8 +14,7 @@ class ChatUser {
     return ChatUser(
       id: jsonData['id'].toString(),
       profileImage: jsonData['profileImage']?.toString(),
-      firstName: jsonData['firstName']?.toString(),
-      lastName: jsonData['lastName']?.toString(),
+      fullName: jsonData['fullName']?.toString(),
       customProperties: jsonData['customProperties'] as Map<String, dynamic>?,
     );
   }
@@ -32,20 +30,13 @@ class ChatUser {
   /// Can be useful to extend existing features
   Map<String, dynamic>? customProperties;
 
-  /// First name of the user,
+  /// Full Name of the user,
   /// if you only have the name as one string
   /// you can put the entire value in the [firstName] field
-  String? firstName;
+  String? fullName;
 
-  /// Last name of the user
-  String? lastName;
-
-  /// Get the full name (firstName + lastName) of the user
   String getFullName() {
-    return (firstName ?? '') +
-        (firstName != null && lastName != null
-            ? ' ${lastName!}'
-            : lastName ?? '');
+    return fullName;
   }
 
   /// Convert a ChatUser into a json
@@ -53,8 +44,7 @@ class ChatUser {
     return <String, dynamic>{
       'id': id,
       'profileImage': profileImage,
-      'firstName': firstName,
-      'lastName': lastName,
+      'fullName': fullName,
       'customProperties': customProperties,
     };
   }
