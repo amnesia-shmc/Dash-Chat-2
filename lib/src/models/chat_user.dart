@@ -6,8 +6,17 @@ class ChatUser {
     required this.id,
     this.profileImage,
     this.customProperties,
-    this.fullName,
+    this.fullName,  // ← Make sure this line exists
   });
+
+  String id;
+  String? profileImage;
+  Map<String, dynamic>? customProperties;
+  String? fullName;  // ← Make sure this line exists
+
+  String getFullName() {
+    return fullName ?? 'User';  // ← Your fix
+  }
 
   /// Create a ChatUser instance from json data
   factory ChatUser.fromJson(Map<String, dynamic> jsonData) {
