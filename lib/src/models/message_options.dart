@@ -6,6 +6,7 @@ class MessageOptions {
     this.showCurrentUserAvatar = false,
     this.showOtherUsersAvatar = true,
     this.showOtherUsersName = true,
+    this.showCurrentUserName = false,    
     this.userNameBuilder,
     this.avatarBuilder,
     this.onPressAvatar,
@@ -49,6 +50,10 @@ class MessageOptions {
   /// Default to: DateFormat('HH:mm')
   final intl.DateFormat? timeFormat;
 
+  /// If you want to show the name of the current user above their messages
+  /// Similar to showOtherUsersName but for the current user's own messages
+  final bool showCurrentUserName;
+  
   /// If you want to show the time under the text of each message
   final bool showTime;
 
