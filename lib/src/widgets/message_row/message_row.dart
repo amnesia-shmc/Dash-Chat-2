@@ -109,6 +109,12 @@ class MessageRow extends StatelessWidget {
                     messageOptions.userNameBuilder != null
                         ? messageOptions.userNameBuilder!(message.user)
                         : DefaultUserName(user: message.user),
+                  if (isOwnMessage &&
+                      messageOptions.showCurrentUserName &&
+                      (!isPreviousSameAuthor || isAfterDateSeparator))
+                    messageOptions.userNameBuilder != null
+                        ? messageOptions.userNameBuilder!(message.user)
+                        : DefaultUserName(user: message.user),
                   if (message.medias != null &&
                       message.medias!.isNotEmpty &&
                       messageOptions.textBeforeMedia)
